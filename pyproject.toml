@@ -1,0 +1,15 @@
+[project]
+name = "markovi"
+version = "0.1.0"
+description = "A Discord bot that generates messages using Markov chains"
+requires-python = ">=3.11"
+dependencies = [
+    "discord.py>=2.3.0",
+    "redis>=5.0.0",
+]
+
+[project.scripts]
+markovi = "markovi:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
