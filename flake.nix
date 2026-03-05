@@ -64,16 +64,9 @@
           docker = pkgs.dockerTools.buildLayeredImage {
             name = "markovi";
             tag = "latest";
-            contents = [
-              markovi
-              pkgs.redis
-              pkgs.bash
-              pkgs.coreutils
-            ];
+            contents = [ markovi ];
             config = {
-              Cmd = [ "${pkgs.bash}/bin/bash" "-c" ''
-                redis-server --daemonize yes && markovi
-              '' ];
+              Cmd = [ "${markovi}/bin/markovi" ];
               Env = [
                 "REDIS_URL=redis://localhost:6379/0"
               ];
